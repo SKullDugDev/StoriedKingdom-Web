@@ -1,0 +1,77 @@
+:host{
+  color: var(--title-color);
+  font-family: var(--mrs-eaves-font);
+  font-size: 3.2rem;
+  line-height: 1.5;
+  margin-top: .5rem;
+  margin-bottom: 2.4rem;
+}
+
+.user-profile {
+  position: relative;
+  text-align: left;
+}
+
+.user-profile::after {
+  border: none;
+  border-bottom: 0.08em solid transparent;
+  border-left: var(--divider-length) solid var(--divider-color);
+  border-top: 0.08em solid transparent;
+  clip-path: inset(0 1.2em 0 0);
+  content: "";
+  display: block;
+  margin-bottom: 1rem;
+
+  /* margin-top: .0625em; */
+  margin-top: 0;
+  mask-image: var(--divider-mask);
+}
+
+.user-profile-name {
+  font-size: 3.2rem;
+  line-height: 1.125;
+  margin: 0;
+}
+
+.user-profile-details {
+  color: black;
+  font-family: var(--scala-font);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.user-profile-name, .user-profile-details{
+  width: 65.5%;
+
+}
+
+.user-profile-details > p {
+  margin: 0;
+}
+
+.user-profile-image {
+  border: none;
+  position: absolute;
+
+  /* height: 7ch;
+  width: 7ch; */
+
+  height: 7.0382ch;
+  width: 7.0382ch;
+  right: 0;
+  top: 0;
+  margin: 0;
+
+  /* margin-right: -0.4em;
+  margin-top: 0.4em; */
+
+  z-index: 1;
+}
+
+.user-profile-image img {
+  border: none;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}

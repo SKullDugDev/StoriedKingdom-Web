@@ -1,0 +1,36 @@
+:host{
+    margin: 1rem 0;
+}
+
+footer {
+    /* display: inline-flex; */
+    color: #59170d;
+    font-size: 1.2rem;
+    /* padding: 1.16667em; */
+    /* margin: 1rem 0; */
+    text-align: center;
+    white-space: nowrap;
+    /* min-height: 4.968%; */
+    position: relative;
+}
+
+
+
+footer::before {
+  content: "";
+  position: absolute;
+  background-image: url(/assets/images/footer-accent-alt.png) ;
+  background-repeat:  no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-blend-mode: color-burn;
+  left: 0;
+  right: 0;
+  height: 160%;
+  top: -1px;
+}
+
+footer > span {
+    position: relative;
+    top: -6px;
+}

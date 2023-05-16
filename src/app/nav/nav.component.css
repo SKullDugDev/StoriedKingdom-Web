@@ -1,0 +1,197 @@
+:host{
+  margin-bottom: 1rem;
+}
+
+header {
+    font-size: 1.6rem;
+    /*min-height: 5.616%;*/
+}
+
+.navBar {
+  /* align-items: center; */
+  background-image: var(--scroll-bg-img);
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  margin-bottom: 1rem;
+  padding: 0.6rem 0 0.5rem;
+  position: relative;
+  /* min-height: 80.77%; */
+}
+
+/* .navBar_navContainer {
+    align-items: center;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    width: 100%;
+    min-height: 96.7742%;
+    height: 100%;
+} */
+
+.navBar_navHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*.navHeader_siteBrand{*/
+/*  width: 40%;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.navHeader_navToggleContainer{*/
+/*  width: 12%;*/
+/*  justify-content: flex-end;*/
+/*}*/
+
+.navHeader_siteBrand, .navHeader_navToggleContainer {
+  /* display: inline-block; */
+  /* display: table;
+height: 100%; */
+  display: flex;
+  margin: 0 1rem;
+}
+
+/* .navHeader_siteBrand{
+  padding: 0.25rem 0;
+} */
+
+.siteBrand_brandLink {
+  color: rgba(0, 0, 0, 0.9);
+  font-family: var(--mrs-eaves-font);
+
+  /* font-size: 1.52rem; */
+  font-size: 1.8667rem;
+  line-height: 1.5;
+  /* line-height: normal; */
+  /* margin-left: 0.8rem;
+  margin-right: 1rem;
+  padding-bottom: 0.3125rem;
+  padding-top: 0.3125rem; */
+  text-decoration: none;
+  /* padding: 0.4rem 0; */
+  /* white-space: nowrap; */
+  /* min-height: 100%; */
+  /* display: table-cell;
+  text-align: center;
+  vertical-align: middle; */
+  margin: auto;
+}
+
+.siteBrand_brandLink:focus,
+.siteBrand_brandLink:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+
+.navToggleContainer_navToggle {
+  /* -webkit-appearance: button; */
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  color: rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.25rem;
+  padding: .3rem .45rem;
+  /* line-height: 1; */
+  /* line-height: 1.6; */
+  /* margin: 0; */
+  /* padding: 0.4rem 0.75rem; */
+  /* padding: 0.4rem 0; */
+
+  text-transform: none;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.navToggleContainer_navToggle:not(:disabled) {
+  cursor: pointer;
+}
+
+.navToggleContainer_navToggle:hover {
+  text-decoration: none;
+}
+
+.navToggleContainer_navToggle:focus {
+  box-shadow: 0 0 0 0.25rem;
+  outline: 0;
+  text-decoration: none;
+}
+
+.navToggleContainer_navToggle:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.navToggle_toggleIcon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  height: 2.8rem;
+  vertical-align: middle;
+  width: 2.8rem;
+}
+
+.navBar_navContent {
+  align-items: center;
+  flex-basis: 100%;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.navContentCollapse {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  /* transition: max-height .4s cubic-bezier(0, 1, 0, 1); */
+}
+
+.navContentCollapse.show {
+  /* max-height: 99em; */
+  transition: max-height 0.35s ease-in-out;
+}
+
+.navContentCollapse:not(.show) {
+  display: initial;
+}
+
+.navContent_navList {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  list-style: none;
+  margin-left: 1rem;
+  /* margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0; */
+}
+
+.navList_navItem {
+  list-style: none;
+}
+
+.navItem_navLink {
+  color: #0d6efd;
+  display: block;
+  padding: 0.5rem 0;
+  /* margin-left: 0.8rem; */
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.navItem_navLink:focus,
+.navItem_navLink:hover {
+  color: #0d6efd;
+}

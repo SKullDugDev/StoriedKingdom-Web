@@ -1,0 +1,781 @@
+.centered-flex {
+  display: flex;
+  align-items: center;
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: .5rem 0;
+
+}
+
+
+.form > * {
+  margin: 1.4rem 0;
+}
+
+.form-row {
+  display: flex;
+  flex-flow: row nowrap;
+  /*margin: 0 auto;*/
+  /*width: 100%;*/
+}
+
+.form-row-entry {
+  flex: auto;
+  /*width: 100%;*/
+  padding: 0 .75rem;
+}
+
+.entry-block {
+  background: white;
+  border-radius: .3rem;
+  font-family: var(--bookmania-font);
+  position: relative;
+}
+
+.entry-block .entry-control {
+  background: transparent;
+  border: 0;
+  padding: .33rem .75rem;
+  transition: all .2s linear;
+  font-size: 1.6rem;
+  padding-top: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entry-block .entry-control:not(.placeholder-active)::placeholder {
+  opacity: 0;
+}
+
+.entry-block .entry-control ~ .entry-label {
+  bottom: 0;
+  color: rgb(0 0 0 / 60%);
+  left: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  padding: .33rem .75rem;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  transform-origin: 0 0;
+  transition: all .2s ease-out;
+
+  /* line-height: 2.2; */
+  white-space: nowrap;
+}
+
+.entry-block .entry-control:focus {
+  background: #eee5ce;
+  box-shadow: none;
+}
+
+
+.entry-block .entry-control:focus ~ .entry-label {
+  color: #1266f1;
+}
+
+
+.entry-block .entry-control:focus ~ .entry-label,
+.entry-block .entry-control.active ~ .entry-label,
+.entry-block .entry-control:not(:placeholder-shown) ~ .entry-label {
+  max-width: 100%;
+  transform: translateY(-.95rem) scale(.8);
+  width: fit-content;
+}
+
+.entry-block .entry-control:focus ~ .entry-notch .notch-leading {
+  border-bottom: .125rem solid #1266f1;
+  border-left: .125rem solid #1266f1;
+  border-top: .125rem solid #1266f1;
+}
+
+.entry-block .entry-control:focus ~ .entry-notch .notch-leading,
+.entry-block .entry-control.active ~ .entry-notch .notch-leading,
+.entry-block .entry-control:not(:placeholder-shown) ~ .entry-notch .notch-leading {
+  border-right: none;
+  transition: all .2s linear
+}
+
+.entry-block .entry-control:focus ~ .entry-notch .notch-middle {
+  border-bottom: .125rem solid;
+  border-color: #1266f1
+}
+
+.entry-block .entry-control:focus ~ .entry-notch .notch-middle,
+.entry-block .entry-control.active ~ .entry-notch .notch-middle,
+.entry-block .entry-control:not(:placeholder-shown) ~ .entry-notch .notch-middle {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  transition: all .2s linear
+}
+
+.entry-block .entry-control:focus ~ .entry-notch .notch-trailing {
+  border-bottom: .125rem solid #1266f1;
+  border-right: .125rem solid #1266f1;
+  border-top: .125rem solid #1266f1;
+}
+
+.entry-block .entry-control:focus ~ .entry-notch .notch-trailing,
+.entry-block .entry-control.active ~ .entry-notch .notch-trailing,
+.entry-block .entry-control:not(:placeholder-shown) ~ .entry-notch .notch-trailing {
+  border-left: none;
+  transition: all .2s linear
+}
+
+
+*.ng-invalid ~ .entry-notch .notch-leading,
+*.ng-invalid ~ .entry-notch .notch-middle,
+*.ng-invalid ~ .entry-notch .notch-trailing {
+  border-color: #963950;
+  transition: all .2s linear;
+}
+
+*.ng-dirty.ng-valid ~ .entry-notch .notch-leading,
+*.ng-dirty.ng-valid ~ .entry-notch .notch-middle,
+*.ng-dirty.ng-valid ~ .entry-notch .notch-trailing {
+  border-color: #83b150;
+  transition: all .2s linear;
+}
+
+.entry-block .entry-control.ng-dirty.ng-invalid ~ .entry-label,
+.entry-block .formEntry_selectControl.ng-invalid ~ .formEntry_formLabel-selectLabel {
+  color: #963950;
+  transition: all .2s linear;
+}
+
+
+.entry-block .entry-control.ng-dirty.ng-valid ~ .entry-label,
+.entry-block .formEntry_selectControl.ng-dirty.ng-valid ~ .formEntry_formLabel-selectLabel {
+  color: #83b150;
+  transition: all .2s linear;
+}
+
+
+.entry-block .entry-control ~ .entry-notch {
+  display: flex;
+  height: 100%;
+  left: 0;
+  max-width: 100%;
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  width: 100%;
+}
+
+.entry-block .entry-control ~ .entry-notch div {
+  background: transparent;
+
+  /* border: 0.0625rem solid #bdbdbd; */
+  border: 0.1rem solid #bdbdbd;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.entry-block .entry-control ~ .entry-notch .notch-leading {
+  border-radius: .25rem 0 0 .25rem;
+  border-right: none;
+  height: 100%;
+}
+
+.entry-block .entry-control ~ .entry-notch .notch-middle {
+  border-left: none;
+  border-right: none;
+  flex: 0 0 auto;
+  height: 100%;
+  max-width: calc(100% - 1rem);
+}
+
+.entry-block .entry-control ~ .entry-notch .notch-trailing {
+  border-left: none;
+  border-radius: 0 .25rem .25rem 0;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.entry-control {
+  appearance: none;
+  border: 0.0625rem solid #bdbdbd;
+  border-radius: .25rem;
+  color: #4f4f4f;
+  display: block;
+  font-size: 1rem;
+  height: 2.5rem;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.entry-control:focus {
+  color: #4f4f4f;
+  outline: none;
+}
+
+.entry-control.entryBlock_formEntry-selectBlock {
+  border: none;
+  padding: 0;
+}
+
+.notch-leading {
+  /* width: 0.563rem; */
+  width: .6rem;
+}
+
+.username-notch {
+  width: 6rem;
+}
+
+.email-notch {
+  width: 3.5rem;
+}
+
+.formNotch_middleNotch-roleNotch {
+  /* width: 1.7rem; */
+  width: 2.6rem;
+}
+
+.formNotch_middleNotch-gameNotch {
+  width: 3.6rem;
+}
+
+.switch-block {
+  /* align-content: center; */
+
+  /* align-items: center; */
+  background: transparent;
+  border: 0;
+
+  /* border-radius: 1.25rem; */
+  border-radius: 2rem;
+
+  /* border-radius: 1.1115rem; */
+  color: #616161;
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.formEntry_switch {
+  background: linear-gradient(to bottom, #eee, #DADBDD 1.563rem);
+  background-image: linear-gradient(#eee, #DADBDD 1.563rem);
+  border-radius: 2rem;
+  box-shadow: inset 0 -0.0625rem 0.0625rem rgb(0 0 0 / 5%), inset 0 0.0625rem 0.0625rem rgb(0 0 0 / 5%);
+  box-sizing: content-box;
+  cursor: pointer;
+  font-size: 1.6rem;
+  height: 80%;
+  line-height: 2.1;
+  padding: .4rem;
+  position: relative;
+  top: .0625rem;
+  width: calc(100% - 0.5rem);
+}
+
+.switch_switchInput {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.switch_switchInput:checked ~ .switch_switchState {
+  /* background: #e1b42b; */
+  background: #8D303C;
+  box-shadow: inset 0 0.0625rem 0.125rem rgb(0 0 0 / 15%), inset 0 0 0.188rem rgb(0 0 0 / 20%);
+}
+
+.switch_switchInput:checked ~ .switch_switchState .switchState_switchOption-playerSwitchOption {
+  /* figure out how to remove important */
+  display: none !important;
+}
+
+.switch_switchInput:checked ~ .switch_switchState .switchState_switchOption.switchState_switchOption-playerSwitchOption {
+  display: none;
+}
+
+.switch_switchInput:checked ~ .switch_switchState .switchState_switchOption-dmSwitchOption {
+  display: inherit;
+}
+
+.switch_switchInput:checked ~ .switch_handleBlock .handleBlock_switchToggle {
+  box-shadow: -0.0625rem 0.0625rem 0.313rem rgb(0 0 0 / 20%);
+  left: auto;
+
+  /* right: 0.125rem; */
+  right: .3rem;
+}
+
+.switch_switchInput ~ .entry-notch {
+  display: flex;
+
+  /* max-width: 100%; */
+
+  /* height: 2.5rem; */
+  height: 3.7rem;
+  left: -.0625rem;
+  max-width: calc(100% + 0.125rem);
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  top: -.0625rem;
+
+  /* width: 100%; */
+  width: calc(100% + 0.125rem);
+}
+
+.switch_switchInput ~ .entry-notch div {
+  background: transparent;
+
+  /* border: 0.0625rem solid #bdbdbd; */
+  border: .125rem solid #bdbdbd;
+  border-right-color: rgb(189 189 189);
+  border-right-style: solid;
+
+  /* border-right-width: 0.0625rem; */
+  border-right-width: .125rem;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.switch_switchInput ~ .entry-notch .notch-leading {
+  /* margin: 0.3rem; */
+
+  /* border-bottom-left-radius: 1.25rem; */
+  border-bottom-left-radius: 2rem;
+  border-right: none;
+
+  /* border-top-left-radius: 1.25rem; */
+  border-top-left-radius: 2rem;
+  transition: border-color 0.2s linear;
+
+  /* width: 1.3rem; */
+  width: 2rem;
+}
+
+.switch_switchInput ~ .entry-notch .notch-middle {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  flex: 0 0 auto;
+
+  /* height: 100%; */
+  max-width: calc(100% - 1rem);
+  transition: border-color 0.2s linear;
+
+  /* margin: -0.3rem; */
+}
+
+.switch_switchInput ~ .entry-notch .notch-trailing {
+  /* margin: 0.3rem; */
+
+  /* border-bottom-right-radius: 1.25rem; */
+  border-bottom-right-radius: 2rem;
+  border-left: none;
+
+  /* border-top-right-radius: 1.25rem; */
+  border-top-right-radius: 2rem;
+  flex-grow: 1;
+  transition: border-color 0.2s linear;
+}
+
+.switch_switchInput:focus ~ .entry-notch div {
+  border-color: #1266f1;
+  border-width: .125rem;
+}
+
+.switch_switchState {
+  /* background: #eceeef; */
+  background: #6BB877;
+  border-radius: inherit;
+  box-shadow: inset 0 0.0625rem 0.125rem rgb(0 0 0 / 12%), inset 0 0 0.125rem rgb(0 0 0 / 15%);
+  box-sizing: content-box;
+
+  /* display:inline-block; */
+  display: inline-flex;
+
+  /*    align-content:center;
+  align-items:center; */
+
+  /* display: flex; */
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.switchState_switchOption {
+  /*      transform: translateX(.189rem); */
+
+  /*        inset:0;
+      display:flex;
+      align-items:center; */
+
+  /* top: 50%;
+      margin-top: -0.5rem; */
+  box-sizing: content-box;
+  height: 100%;
+  inset: 0;
+
+  /*   width: calc( 100% - 1.439rem); */
+
+  /* text-align: center; */
+
+  /*        display:flex; */
+  justify-content: center;
+  position: absolute;
+  transition: inherit;
+}
+
+/* consider adding the block to the name */
+
+.switchState_switchOption-playerSwitchOption {
+  color: #0A0A0A;
+
+  /* get rid of the important */
+  display: inherit !important;
+  margin-left: 1.7875rem;
+
+  /* margin-right: 0.339rem; */
+  margin-right: 0.2rem;
+  text-shadow: 0.02rem 0.04rem rgb(136 136 136 / 50%);
+}
+
+.switchState_switchOption.switchState_switchOption-playerSwitchOption {
+  display: inherit;
+}
+
+.switchState_switchOption-dmSwitchOption {
+  color: #fffafa;
+  display: none;
+  margin-left: 1.25rem;
+  margin-right: 1.7875rem;
+  text-shadow: 0 0.0625rem rgb(0 0 0 / 20%);
+}
+
+.switch_handleBlock {
+  /*    justify-content: center;
+  align-content: center; */
+  align-items: center;
+  display: flex;
+
+  /* top: 0;
+  height:100%;
+  width:100%; */
+  inset: 0.1875rem;
+  position: absolute;
+}
+
+.handleBlock_switchToggle {
+  /*    -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease; */
+
+  /* transition: All 0.3s ease; */
+  background: linear-gradient(to bottom, #fff 40%, #f0f0f0);
+  background-image: linear-gradient(rgb(255 255 255) 40%, rgb(240 240 240));
+  background-image: linear-gradient(top, #fff 40%, #f0f0f0);
+  border-radius: 100%;
+  box-shadow: 0.0625rem 0.0625rem 0.313rem rgb(0 0 0 / 20%);
+
+  /* height: 80%; */
+  height: 2.6rem;
+
+  /* left: 0.125rem; */
+  left: .4rem;
+  position: absolute;
+  transition: all 250ms ease;
+
+  /* width: 1.6rem; */
+  width: 2.6rem;
+}
+
+.handleBlock_switchToggle::before {
+  background: linear-gradient(to bottom, #eee, #fff);
+  background-image: linear-gradient(rgb(238 238 238), rgb(255 255 255));
+  background-image: linear-gradient(top, #eee, #fff);
+
+  /* border-radius: 0.375rem; */
+  border-radius: 2rem;
+  box-shadow: inset 0 0.0625rem rgb(0 0 0 / 2%);
+  content: "";
+
+  /* margin: -0.33rem 0 0 -0.33rem; */
+
+  /* height: 50.1%;
+  width: 0.5745rem; */
+
+  /* height: 50%; */
+  height: 1.3rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  /* width: 0.8rem; */
+  width: 1.3rem;
+}
+
+.formEntry_formLabel-switchLabel {
+  bottom: 0;
+  color: #1266f1;
+  font-size: 1.6rem;
+  height: fit-content;
+  left: 0;
+  margin: 0;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  /* transform: translateX(1.3rem) translateY(-1rem) translateY(0.36rem) scale(0.8); */
+
+  /* transform: translateX(1.3rem) translateY(-1rem) translateY(0.28rem) scale(0.8); */
+
+  /* transform: translateX(1.3rem) translateY(-.72rem) scale(.8); */
+
+  /* transform: translateX(1.8rem) translateY(-.9rem) scale(.8); */
+  transform: translateX(1.8rem) translateY(-.85rem) scale(.8);
+  transform-origin: 0 0;
+
+  /* might need to make this line up with the handle */
+  transition: all 0.2s ease-out;
+
+  /* padding: 0.33rem; */
+  white-space: nowrap;
+
+  /* transform: translateX(1.4rem) translateY(-1rem) translateY(0.32rem) scale(0.8) */
+  width: fit-content;
+}
+
+.entryBlock_formEntry-selectBlock {
+  appearance: none;
+  background: #eee5ce;
+  color: #616161;
+  font-family: bookmania, serif;
+  height: 5rem;
+}
+
+.formEntry_selectControl {
+  appearance: none;
+  background: #eee5ce;
+  border: none;
+  border-radius: .3rem;
+
+  /* height: 2.223rem; */
+  height: 100%;
+  line-height: 2.3;
+  outline: 0;
+
+  /* padding: 0.33rem 0.75rem; */
+  text-align: center;
+  text-transform: none;
+  width: 100%;
+  word-wrap: normal;
+
+  /* padding-top: .6rem; */
+}
+
+.formEntry_selectControl:focus ~ .entry-notch div {
+  border-color: #1266f1;
+  border-width: .125rem;
+}
+
+.selectControl_selectOptions {
+  appearance: none;
+  background: #eee5ce;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  padding-top: .5rem;
+}
+
+.selectControl_selectOptions:checked {
+  /* background: #6CD4FF; */
+  background: #A3D1D8;
+}
+
+.formEntry_formLabel-selectLabel {
+  bottom: 0;
+  color: #1266f1;
+  font-size: 1.6rem;
+  left: 0;
+  line-height: 1.5;
+  margin-bottom: 0;
+  margin-left: 0;
+  overflow: hidden;
+  padding: 0.33rem 0.75rem;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-1rem) scale(0.8);
+  transform-origin: 0 0;
+  transition: all 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.formEntry_formLabel-selectLabel ~ .entry-notch {
+  display: flex;
+  height: 100%;
+  left: 0;
+  max-width: 100%;
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  width: 100%;
+}
+
+.formEntry_formLabel-selectLabel ~ .entry-notch div {
+  background: transparent;
+
+  /* border: 0.0625rem solid #bdbdbd; */
+  border: .125rem solid #bdbdbd;
+  border-right-color: rgb(189 189 189);
+  border-right-style: solid;
+
+  /* border-right-width: 0.0625rem; */
+  border-right-width: 0.125rem;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.formEntry_formLabel-selectLabel ~ .entry-notch .notch-leading {
+  border-radius: 0.25rem 0 0 0.25rem;
+  border-right: none;
+  height: 100%;
+  transition: all 0.2s linear;
+}
+
+.formEntry_formLabel-selectLabel ~ .entry-notch .notch-middle {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  flex: 0 0 auto;
+  height: 100%;
+  max-width: calc(100% - 1rem);
+  transition: all 0.2s linear;
+}
+
+.formEntry_formLabel-selectLabel ~ .entry-notch .notch-trailing {
+  border-left: none;
+  border-radius: 0 0.25rem 0.25rem 0;
+  flex-grow: 1;
+  height: 100%;
+  transition: all 0.2s linear;
+}
+
+.select-game-message {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.game-selections {
+  column-gap: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.selected-game-block {
+  align-items: center;
+  display: flex;
+  flex: none;
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+  transition: max-height .35s ease, opacity .35s ease, max-width .35s ease;
+}
+
+.game-selections .selected-game-block.show {
+  max-height: 4.6rem;
+  max-width: 100%;
+  opacity: 1;
+  transition: max-height .35s ease, opacity .35s ease, max-width .35s ease;
+}
+
+.selected-role {
+  align-items: center;
+  background: #6BB877;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #918c88, 0 0 0 2px #e1d8cf, 0 0 0 3px #a98f39, inset 0 0 8px rgba(0, 0, 0, .5), 0 0 8px #000;
+  display: flex;
+  justify-content: center;
+  padding: .425rem .6885rem;
+  position: relative;
+  right: -6px;
+  transition: background .35s ease, color .35s ease;
+  z-index: 2;
+}
+
+.selected-role.dm-role {
+  background: #8D303C;
+  color: #fffafa;
+  transition: background .35s ease, color .35s ease;
+}
+
+.selected-role .selected-role-text {
+  font-size: 1.3rem;
+  padding-top: .4rem;
+}
+
+.selected-game {
+  align-items: center;
+  background: url("src/assets/images/banner-bg.webp") repeat-x 50%;
+  box-sizing: border-box;
+  display: flex;
+  height: 46px;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  width: fit-content;
+  z-index: 1;
+}
+
+.selected-game::after {
+  background: url("src/assets/images/banner-bg2.webp") no-repeat 100%;
+  content: "";
+  height: inherit;
+  position: absolute;
+  right: -11px;
+  top: 0;
+  width: 15px;
+}
+
+.selected-game-text {
+  font-size: 1.5rem;
+  padding: 0.6rem 1.25rem 0 1.8rem;
+}
+
+.selected-role, .selected-game {
+  vertical-align: middle;
+}
+
+.footer-register {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-register span {
+  padding: 0.1rem 0.4rem 0.1rem 0.3rem;
+}

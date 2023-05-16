@@ -1,0 +1,111 @@
+<div>
+  <div class="content">
+
+    <h1 class="content-header">Inductions!</h1>
+
+    <div class="content-body">
+
+        <app-user-profile></app-user-profile>
+
+      <form [formGroup]="form" class="form">
+        <div class="form-row">
+          <div class="form-row-entry">
+            <div class="entry-block">
+              <input class=entry-control formControlName="username" id="userNameInput" name="username" placeholder=""
+                     type="text"/>
+              <label class="entry-label" for="userNameInput">Username</label>
+              <div class="entry-notch">
+                <div class="notch-leading"></div>
+                <div class="notch-middle username-notch"></div>
+                <div class="notch-trailing"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row-entry">
+            <div class="entry-block">
+              <input class="entry-control" formControlName="email" id="emailInput" name="email" placeholder=""
+                     type="text"/>
+              <label class="entry-label" for="emailInput">Email</label>
+              <div class="entry-notch">
+                <div class="notch-leading"></div>
+                <div class="notch-middle email-notch"></div>
+                <div class="notch-trailing"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <blockquote class="message select-game-message">
+          Using the switch and available game options listed further below, register which games you will be participating in and whether as a Player or DM. Your selections will appear directly below.
+          <div class="game-selections">
+
+            <div *ngFor="let selectedGame of gameSelections " [ngClass]="{'show': gameSelections.length !== 0}"
+                 class="selected-game-block">
+              <div [ngClass]="{'dm-role': selectedGame.dm}" class="selected-role"
+                   title="Role for Selected Game">
+                <span class="selected-role-text">{{selectedGame.dm ? 'DM' : 'PC'}}</span>
+              </div>
+              <div class="selected-game">
+                <span class="selected-game-text" title="Selected Game"> {{selectedGame.name}}</span>
+              </div>
+            </div>
+          </div>
+        </blockquote>
+        <div class="form-row">
+          <div class="form-row-entry centered-flex">
+            <div class="entry-block entry-control switch-block">
+              <label class="formEntry_switch" for="roleSwitch">
+                <input [formControl]="roleSwitch" class="switch_switchInput" id="roleSwitch" name="role" type="checkbox"
+                       value="DM"/>
+                <span class="switch_switchState">
+                                <label class="switchState_switchOption switchState_switchOption-playerSwitchOption"
+                                       for="roleSwitch" hidden>Player</label>
+                                <label class="switchState_switchOption switchState_switchOption-dmSwitchOption"
+                                       for="roleSwitch">DM</label>
+                            </span>
+                <div class="switch_handleBlock">
+                  <span class="handleBlock_switchToggle"></span>
+                </div>
+                <div class="entry-notch">
+                  <div class="notch-leading"></div>
+                  <div class="notch-middle formNotch_middleNotch-roleNotch"></div>
+                  <div class="notch-trailing"></div>
+                </div>
+              </label>
+              <label class="formEntry_formLabel formEntry_formLabel-switchLabel" for="roleSwitch">Role</label>
+            </div>
+          </div>
+          <div class="form-row-entry">
+            <div class="entry-block entry-control entryBlock_formEntry-selectBlock">
+              <select class="formEntry_selectControl" formControlName="gameSelections" id="gamesSelect" multiple
+                      size="2">
+
+                <option *ngFor="let gameOption of gameOptions" [ngValue]="gameOption"
+                        class="selectControl_selectOptions" [attr.disabled]="gameOption.disabled ? true: null">
+                  {{gameOption.name}}
+                </option>
+
+
+              </select>
+
+              <label class="formEntry_formLabel formEntry_formLabel-selectLabel" for="gamesSelect">Game</label>
+              <div class="entry-notch">
+                <div class="notch-leading"></div>
+                <div class="notch-middle formNotch_middleNotch-gameNotch"></div>
+                <div class="notch-trailing"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="content-footer">
+      <div class="footer-register">
+        <button class="auth-button">
+          <img #purpleDiscordLogo alt="Purple Discord Logo"
+               height="55" ngSrc="assets/images/purpleDiscordLogo.svg"
+               width="71"/></button>
+        <span #registerText class="action-hint">Register</span>
+      </div>
+    </div>
+  </div>
+</div>

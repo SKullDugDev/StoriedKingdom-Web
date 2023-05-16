@@ -1,0 +1,24 @@
+<header>
+    <nav class="navBar">
+        <div class="navBar_navHeader">
+            <div class="navHeader_siteBrand"><a class="siteBrand_brandLink" href="">Storied Kingdom</a></div>
+            <div class="navHeader_navToggleContainer">
+                <button class="navToggleContainer_navToggle" type="button" aria-controls="navLinks"
+                    [attr.aria-expanded]="isNavShown" aria-label="Toggle navigation" (click)="toggleNavMenu()">
+                    <span class="navToggle_toggleIcon"></span>
+                </button>
+            </div>
+        </div>
+        <div #navLinks id="navLinks" class="navBar_navContent navContentCollapse" [ngClass]="{'show': isNavShown}"
+            (click)="toggleNavMenu()">
+            <ul class="navContent_navList">
+                <li class="navList_navItem">
+                    <a class="navItem_navLink" routerLink="/register">Register</a>
+                </li>
+                <li class="navList_navItem">
+                    <a class="navItem_navLink" routerLink="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
